@@ -16,7 +16,7 @@ import flagpy as fp
 
 
 #latest and upcoming events
-
+fastf1.Cache.enable_cache('.fastf1_cache')
 schedule = fastf1.get_event_schedule(2025, include_testing=False, backend='fastf1', force_ergast=False)
 eventDates = schedule.loc[:, ['EventDate']]
 eventDates['dateTime'] = eventDates.apply(lambda x: pd.to_datetime(eventDates['EventDate'], format='%Y-%M-%d'))
