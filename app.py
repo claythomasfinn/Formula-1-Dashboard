@@ -104,15 +104,15 @@ figQ.update_layout(
 
 
 #fastest lap visualization
-sessionR = fastf1.get_session(2025, previousRound, 'Race', backend='fastf1')
-sessionR.load()
-fastest_lap = sessionR.laps.pick_fastest()
+#sessionR = fastf1.get_session(2025, previousRound, 'Race', backend='fastf1')
+session.load()
+fastest_lap = session.laps.pick_fastest()
 car_data = fastest_lap.get_car_data()
 car_seconds = car_data['Time'].dt.total_seconds()
 car_min = car_seconds.min()
 car_max = car_seconds.max()
 tickvals = np.arange(np.floor(car_min), np.ceil(car_max)+1, 10)
-circuit_info = sessionR.get_circuit_info()
+circuit_info = session.get_circuit_info()
 figFastestLap = go.Figure()
 
 
